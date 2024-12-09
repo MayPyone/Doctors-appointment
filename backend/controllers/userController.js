@@ -191,5 +191,27 @@ const cancleAppointment = async (req,res) => {
     }
 }
 
+const payment = async(req,res ) => {
+    try {
+        const { appointmentId } = req.body;
 
-export { registerUser, userLogin, getProfile, updateProfile, bookAppointment, listAppointment, cancleAppointment }
+        const appointment = await appointmentModel.findById(appointmentId);
+
+        if (!appointment) {
+            return res.status(404).json({ message: "Appointment not found" });
+        }
+
+    
+        appointment.payment = true;
+
+       
+        await appointment.save();
+
+        return res.status(200).json({ success: true, message: "Payment Successful" });
+    } catch (error) {
+        console.log(error)
+        return  res.json({success: false, message: error.message})
+    }
+} 
+
+export { registerUser, userLogin, getProfile, updateProfile, bookAppointment, listAppointment, cancleAppointment, payment }
