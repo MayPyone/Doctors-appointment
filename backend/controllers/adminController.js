@@ -38,7 +38,7 @@ const addDoctor = async (req, res) => {
       image: imageUrl,
       experience,
       about,
-      address,
+      address: JSON.parse(address),
       available,
       date: Date.now()
     }
