@@ -60,7 +60,7 @@ It features appointment scheduling, cancellation, payment options, and administr
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://budgettracker-avhg.onrender.com)
+- [Live Demo Link](https://prescripto-doctors-appointment.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
