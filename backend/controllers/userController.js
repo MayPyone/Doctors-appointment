@@ -1,5 +1,5 @@
 import validator from "validator"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import userModel from "../models/userModel.js"
 import doctorModel from "../models/doctorModel.js"
 import appointmentModel from "../models/appointmentModel.js"
@@ -7,19 +7,24 @@ import jwt from "jsonwebtoken"
 import {v2 as cloudinary} from "cloudinary"
 import razorpay from "razorpay"
 const registerUser = async (req, res) => {
-    console.log(req.body)
     try {
         const { name, email, password } = req.body
-        console.log(name, email, password)
+
         if (!name || !email || !password) {
-            res.json({ success: false, message: 'Missing deails' })
+            return res.json({ success: false, message: 'Missing details' })
         }
+
         if (!validator.isEmail(email)) {
-            res.json({ success: false, message: 'enter a valid email' })
+            return res.json({ success: false, message: 'Enter a valid email' })
         }
 
         if (password.length < 8) {
-            res.json({ success: false, message: 'enter a strong password' })
+            return res.json({ success: false, message: 'Enter a strong password' })
+        }
+
+        const existingUser = await userModel.findOne({ email })
+        if (existingUser) {
+            return res.json({ success: false, message: 'User already exists' })
         }
 
         const salt = await bcrypt.genSalt(10)
@@ -34,7 +39,7 @@ const registerUser = async (req, res) => {
         const newUser = new userModel(userData)
         const user = await newUser.save()
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
-        res.json({ success: true, token })
+        return res.json({ success: true, token })
 
     } catch (error) {
         console.log(error)
@@ -49,7 +54,7 @@ const userLogin = async (req, res) => {
         const user = await userModel.findOne({ email })
 
         if (!user) {
-            res.json({ success: false, message: "The user can't be found" })
+            return res.json({ success: false, message: "The user can't be found" })
         }
 
         const isMatch = await bcrypt.compare(password, user.password)

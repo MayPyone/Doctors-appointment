@@ -11,8 +11,7 @@ import userRouter from './routes/userRoute.js'
 //app conig
 const app = express()
 const port = process.env.PORT || 3000
-connectDB()
-connectCloudinary()
+
 //middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
@@ -27,4 +26,20 @@ app.get('/',(req,res)=>{
   res.send('api working')
 })
 
-app.listen(port,()=>console.log('sever started port',port))
+const startServer = async () => {
+  try {
+    await Promise.race([
+      connectDB(),
+      new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('MongoDB connection timed out after 10 seconds')), 10000)
+      })
+    ])
+    connectCloudinary()
+    app.listen(port,()=>console.log('server started port',port))
+  } catch (error) {
+    console.error('Failed to start server:', error.message)
+    process.exit(1)
+  }
+}
+
+startServer()
