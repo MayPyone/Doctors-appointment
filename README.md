@@ -8,6 +8,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
+    - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -53,6 +54,12 @@ It features appointment scheduling, cancellation, payment options, and administr
 - **Responsive Design: Accessible on desktop, tablet, and mobile devices.**
 -**Secure Authentication: Role-based authentication and authorization for admin, doctor, and user access.**
 -**Real-time Updates: Instant updates to appointment statuses and notifications.**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [Live Demo Link](https://prescripto-doctors-appointment.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
