@@ -8,7 +8,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-    - [🚀 Live Demo](#live-demo)
+    - [🚀 Live Demo & Testing](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -59,7 +59,21 @@ It features appointment scheduling, cancellation, payment options, and administr
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://prescripto-doctors-appointment.onrender.com/)
+* 🌐 **[Patient/User Frontend Portal](https://prescripto-doctors-appointment.onrender.com/)**
+* ⚙️ **[Admin & Doctor Dashboard](https://admin-doctor-appointment.onrender.com/)**
+
+### 🔑 Demo Testing Credentials
+
+To test the application features immediately without creating a new account, you can use the following pre-configured credentials:
+
+#### **Admin Dashboard Credentials**
+* **URL:** [Admin Dashboard](https://admin-doctor-appointment.onrender.com/)
+* **Email:** `maypyone015@gmail.com`
+* **Password:** `omru lpty axck aerv`
+
+#### **Patient/User Portal Credentials**
+* **URL:** [User Portal](https://prescripto-doctors-appointment.onrender.com/)
+* *You can instantly log in by registering any sample account on the login page.*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
